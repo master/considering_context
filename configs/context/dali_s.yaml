@@ -1,0 +1,11 @@
+mode: dali_s
+window: 64
+dali:
+  observation_key: state
+  context_dim: 8
+  width: 256
+  heads: 1
+  forward_layers: 2
+  forward_units: 128
+  loss_scale: 1.0
+  lr: 0.0001

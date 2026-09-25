@@ -1,0 +1,13 @@
+task: dpmdp_point
+steps: 100000.0
+env_num: 16
+action_repeat: 1
+train_ratio: 512
+time_limit: 12
+p_stay: 0.9
+seed: ${seed}
+device: ${device}
+context_low:
+- -1.0
+context_high:
+- 1.0

@@ -1,0 +1,13 @@
+mode: lilac
+lilac:
+  observation_key: state
+  context_dim: 8
+  units: 128
+  layers: 2
+  chain_units: 64
+  chain_length: 128
+  max_episodes: 1024
+  env_num: ${env.env_num}
+  chain_scale: 1.0
+  consistency_scale: 0.1
+  lr: 0.0001

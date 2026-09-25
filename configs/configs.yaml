@@ -1,0 +1,38 @@
+defaults:
+  - env: carl_walker_actuator
+  - model: dreamer
+  - context@model.context: hidden
+  - _self_
+  - override hydra/job_logging: disabled
+  - override hydra/hydra_logging: disabled
+
+seed: 0
+deterministic_run: false
+device: cuda:0
+output: model.pt
+batch_size: 16
+batch_length: 64
+
+hydra:
+  output_subdir: null
+  run:
+    dir: .
+  job:
+    chdir: false
+
+buffer:
+  batch_size: ${batch_size}
+  batch_length: ${batch_length}
+  max_size: 500000
+  device: ${device}
+  storage_device: ${device}
+  context_mode: ${model.context.mode}
+  context_window: ${model.context.window}
+
+trainer:
+  steps: ${env.steps}
+  pretrain: 0
+  batch_size: ${batch_size}
+  batch_length: ${batch_length}
+  train_ratio: ${env.train_ratio}
+  action_repeat: ${env.action_repeat}

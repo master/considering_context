@@ -1,0 +1,22 @@
+task: rwrl_walker_walk
+steps: 500000
+env_num: 16
+action_repeat: 1
+train_ratio: 512
+time_limit: 1000
+rwrl:
+  parameter: joint_damping
+  low: 0.1
+  high: 2.0
+  rate: mid
+  rates:
+    low: 0.04
+    mid: 0.2
+    high: 0.6
+  eval_chain_seed: 2026
+seed: ${seed}
+device: ${device}
+context_low:
+- ${env.rwrl.low}
+context_high:
+- ${env.rwrl.high}

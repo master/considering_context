@@ -1,0 +1,21 @@
+task: carl_dmc_walker_walk
+steps: 1000000
+env_num: 16
+action_repeat: 1
+train_ratio: 512
+time_limit: 1000
+task_seed: ${seed}
+seed: ${seed}
+device: ${device}
+context_low: [4.9, 0.6]
+context_high: [14.7, 1.4]
+carl:
+  environment: walker
+  revision: f4b51b6cfc39b1dea4600750dc52bfae1de50186
+  context_names: [gravity, actuator_strength]
+  defaults: [9.81, 1.0]
+  fixed: {}
+  train:
+    count: 100
+    low: [9.81, 0.6]
+    high: [9.81, 1.4]
